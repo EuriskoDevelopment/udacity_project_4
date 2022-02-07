@@ -6,6 +6,7 @@ import os
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from common import load_data
 import json
 
 ###################Load config.json and get path variables
@@ -28,14 +29,13 @@ def train_model():
                     random_state=0, solver='liblinear', tol=0.0001, verbose=0,
                     warm_start=False)
 
-    trainingdata=pd.read_csv(os.path.join(os.getcwd(), dataset_csv_path, 'finaldata.csv'))
-    X=trainingdata.loc[:, numeric_predictors].values.reshape(-1, len(numeric_predictors))
-    y=trainingdata[target].values.reshape(-1, 1).ravel()
+    X, y = load_data(os.path.join(os.getcwd(), dataset_csv_path, 'finaldata.csv'))
 
     #fit the logistic regression to your data
     lr_model.fit(X, y)
     #write the trained model to your workspace in a file called trainedmodel.pkl
     pickle.dump(lr_model, open(os.path.join(model_path, 'trainedmodel.pkl'), 'wb')) 
+
 
 if __name__ == '__main__':
     train_model()
