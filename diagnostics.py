@@ -19,21 +19,21 @@ test_data_path = os.path.join(config['test_data_path'])
 prod_deployment_path = os.path.join(config['prod_deployment_path']) 
 
 ##################Function to get model predictions
-def model_predictions():
+def model_predictions(filename):
     #read the deployed model and a test dataset, calculate predictions
-    X, y = load_data(os.path.join(os.getcwd(), test_data_path, 'testdata.csv'))
+    X, y = load_data(os.path.join(os.getcwd(), test_data_path, filename))
     
     with open( os.path.join(os.getcwd(), prod_deployment_path, 'trainedmodel.pkl'), 'rb') as file:
         model = pickle.load(file)
 
-    predictions=model.predict(X)
+    predictions = model.predict(X)
 
     return predictions
 
 ##################Function to get summary statistics
-def dataframe_summary():
+def dataframe_summary(filename):
     #calculate summary statistics here
-    data = pd.read_csv(os.path.join(os.getcwd(), dataset_csv_path, 'finaldata.csv'))
+    data = pd.read_csv(os.path.join(os.getcwd(), dataset_csv_path, filename))
 
     mean = data.mean(axis=0)
     std = data.std(axis=0)
@@ -84,9 +84,9 @@ def outdated_packages_list():
 
 
 if __name__ == '__main__':
-    #model_predictions()
-    #dataframe_summary()
-    #execution_time()
+    model_predictions('testdata.csv')
+    dataframe_summary('finaldata.csv')
+    execution_time()
     outdated_packages_list()
 
 
