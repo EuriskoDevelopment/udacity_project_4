@@ -1,0 +1,1 @@
+Ingestion timing 0.7190568470005019. Training timing 1.6306121659999917

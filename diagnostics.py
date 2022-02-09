@@ -21,7 +21,7 @@ prod_deployment_path = os.path.join(config['prod_deployment_path'])
 ##################Function to get model predictions
 def model_predictions(filename):
     #read the deployed model and a test dataset, calculate predictions
-    X, y = load_data(os.path.join(os.getcwd(), test_data_path, filename))
+    X, y = load_data(os.path.join(os.getcwd(), filename))
     
     with open( os.path.join(os.getcwd(), prod_deployment_path, 'trainedmodel.pkl'), 'rb') as file:
         model = pickle.load(file)
@@ -44,7 +44,7 @@ def dataframe_summary(filename):
         std_num = std[col]
         median_num = median[col]
         summary.append(f"Statistics for {col}. Mean {mean_num}. Std {std_num}. Median {median_num}")
-
+    
     return summary
 
 ##################Function to get timings
@@ -78,16 +78,15 @@ def outdated_packages_list():
                 print(outdate_mod[0] + "  " + req_mod_info[0])
                 summary.append(f"{outdate_mod[0]} {outdate_mod[1]} {outdate_mod[2]}")
                 break
-
-    print(summary)
+    
     return summary 
 
 
 if __name__ == '__main__':
-    model_predictions('testdata.csv')
-    dataframe_summary('finaldata.csv')
-    execution_time()
-    outdated_packages_list()
+    print(model_predictions('testdata/testdata.csv'))
+    print(dataframe_summary('finaldata.csv'))
+    print(execution_time())
+    print(outdated_packages_list())
 
 
 

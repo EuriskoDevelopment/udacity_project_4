@@ -31,35 +31,39 @@ def index():
     return "Hello"
 
 #######################Prediction Endpoint
-@app.route("/prediction", methods=['POST','OPTIONS'])
+@app.route("/prediction", methods=['GET','OPTIONS'])
 def predict():        
     #call the prediction function you created in Step 3
     filename = request.args.get('filename')
-    prediction= model_predictions(filename)
-    return str(prediction)
+    predictions = model_predictions(filename)
+    intro_str = f'Model predictions from dataset {filename}: '
+    predictions_str = ' '.join(map(str, predictions))
+    summary_str = intro_str + predictions_str    
+
+    return summary_str
 
 #######################Scoring Endpoint
 @app.route("/scoring", methods=['GET','OPTIONS'])
 def stats1():
+    #check the score of the deployed model
     filename = request.args.get('filename')
     f1_score = score_model(filename)
-    #check the score of the deployed model
-    return f1_score
+    return str(f1_score)
 
 #######################Summary Statistics Endpoint
 @app.route("/summarystats", methods=['GET','OPTIONS'])
 def stats2():        
+    #check means, medians, and modes for each column
     filename = request.args.get('filename')
     summary = dataframe_summary(filename)
-    #check means, medians, and modes for each column
-    return summary
+    summary_str = '\n'.join(map(str, summary))
+    return summary_str
 
 #######################Diagnostics Endpoint
 @app.route("/diagnostics", methods=['GET','OPTIONS'])
 def stats3():        
-    #filename = request.args.get('filename')
-    exec_time = execution_time()
     #check timing and percent NA values
+    exec_time = execution_time()
     exec_time_str = f"Ingestion timing {exec_time[0]}. Training timing {exec_time[1]}"
     return exec_time_str
 

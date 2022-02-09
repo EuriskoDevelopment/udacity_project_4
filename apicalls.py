@@ -6,7 +6,7 @@ URL = "http://127.0.0.1/"
 
 
 #Call each API endpoint and store the responses
-response1 = #put an API call here
+response1 = requests.get(URL+'/prediction?filename=testdata/testdata.csv').content()
 response2 = #put an API call here
 response3 = #put an API call here
 response4 = #put an API call here

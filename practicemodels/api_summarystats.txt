@@ -1,0 +1,3 @@
+Statistics for lastmonth_activity. Mean 165.65384615384616. Std 284.0332293669447. Median 73.0
+Statistics for lastyear_activity. Mean 1502.923076923077. Std 2192.6449584568304. Median 955.0
+Statistics for number_of_employees. Mean 26.884615384615383. Std 31.353885785435814. Median 14.0

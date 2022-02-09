@@ -33,10 +33,12 @@ def score_model(filename):
     f1score=metrics.f1_score(predicted,y)
     print(f1score)
 
-    with open(os.path.join(model_path, 'latestscore.txt'), 'w') as f:
-        f.write('F1-score: ' + str(f1score))
+    f1score_str = f"F1-score {f1score}"
 
-    return f1score
+    with open(os.path.join(model_path, 'latestscore.txt'), 'w') as f:
+        f.write(f1score_str)
+
+    return f1score_str
 
 
 if __name__ == '__main__':
