@@ -21,7 +21,7 @@ output_folder_path = config['output_folder_path']
 def merge_multiple_dataframe():
     #check for datasets, compile them together, and write to an output file
     df_list = pd.DataFrame(columns=['corporation', 'lastmonth_activity', 'lastyear_activity', 'number_of_employees', 'exited'])
-    ingested_files = 'The following files have been read:\n'
+    ingested_files = ''
     
     filenames = (x for x in os.listdir(os.path.join(os.getcwd(), input_folder_path)) if x[-4:] == '.csv')
 
