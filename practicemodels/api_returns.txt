@@ -1,6 +1,6 @@
-Model predictions from dataset testdata/testdata.csv: 0 1 1 1 1
+Model predictions from dataset testdata/testdata.csv: 1 1 1 0 1
 F1-score 0.5714285714285715
-Statistics for lastmonth_activity. Mean 165.65384615384616. Std 284.0332293669447. Median 73.0
-Statistics for lastyear_activity. Mean 1502.923076923077. Std 2192.6449584568304. Median 955.0
-Statistics for number_of_employees. Mean 26.884615384615383. Std 31.353885785435814. Median 14.0
-Ingestion timing 0.4401745570030471. Training timing 1.1776287510001566
+Statistics for lastmonth_activity. Mean 2895.7884615384614. Std 13891.799947375555. Median 99.0
+Statistics for lastyear_activity. Mean 1133.2307692307693. Std 2118.8560325982103. Median 422.5
+Statistics for number_of_employees. Mean 242.17307692307693. Std 601.6143876419494. Median 22.5
+Ingestion timing 0.4601680090017908. Training timing 1.1848745240022254

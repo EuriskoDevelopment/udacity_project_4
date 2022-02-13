@@ -26,7 +26,6 @@ def merge_multiple_dataframe():
     filenames = (x for x in os.listdir(os.path.join(os.getcwd(), input_folder_path)) if x[-4:] == '.csv')
 
     for filename in filenames:
-        print("reading file " + filename)
         df1 = pd.read_csv(os.path.join(os.getcwd(), input_folder_path, filename))
         df_list = df_list.append(df1)
         ingested_files += (filename + '\n')
@@ -39,9 +38,6 @@ def merge_multiple_dataframe():
 
     with open(os.path.join(output_dir_fullname, 'ingestedfiles.txt'), 'w') as f:
         f.write(ingested_files)
-
-    return 0
-
 
 
 if __name__ == '__main__':

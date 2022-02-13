@@ -22,7 +22,6 @@ def test_app_calls():
     responses = "\n".join([response1, response2, response3, response4])
 
     #write the responses to your workspace
-    print(responses)
     with open(os.path.join(model_path, 'api_returns.txt'), 'w') as f:
         f.write(responses)
 

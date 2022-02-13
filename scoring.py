@@ -31,7 +31,6 @@ def score_model(filename):
 
     predicted=model.predict(X)
     f1score=metrics.f1_score(predicted,y)
-    print(f1score)
 
     f1score_str = f"F1-score {f1score}"
 

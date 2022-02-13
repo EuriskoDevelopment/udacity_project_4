@@ -1,1 +1,1 @@
-10 * * * * python3 /home/robert/work/courses/udacity_project_4/fullprocess.py
+*/10 * * * * bash -i /home/robert/work/courses/udacity_project_4/run_cron_job.sh

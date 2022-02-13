@@ -75,7 +75,7 @@ def outdated_packages_list():
         req_mod_info = req_mod.split("==")
         for outdate_mod in outdated_modules:
             if req_mod_info[0] == outdate_mod[0]:
-                print(outdate_mod[0] + "  " + req_mod_info[0])
+                #print(outdate_mod[0] + "  " + req_mod_info[0])
                 summary.append(f"{outdate_mod[0]} {outdate_mod[1]} {outdate_mod[2]}")
                 break
     
@@ -83,10 +83,10 @@ def outdated_packages_list():
 
 
 if __name__ == '__main__':
-    print(model_predictions('testdata/testdata.csv'))
-    print(dataframe_summary('finaldata.csv'))
-    print(execution_time())
-    print(outdated_packages_list())
+    model_predictions('testdata/testdata.csv')
+    dataframe_summary('finaldata.csv')
+    execution_time()
+    outdated_packages_list()
 
 
 
