@@ -1,0 +1,30 @@
+ 
+## Predictions
+Curl command and return string:
+```console
+curl 127.0.0.1:8000/prediction?filename='testdata/testdata.csv'
+Model predictions from dataset testdata/testdata.csv: 0 1 1 1 1
+```
+
+## Scoring
+Curl command and return string:
+```console
+curl 127.0.0.1:8000/scoring?filename='testdata.csv' > practicemodel/api_scoring.txt
+F1-score 0.5714285714285715
+```
+
+## Statistics
+Curl command and return string:
+```console
+curl 127.0.0.1:8000/summarystats?filename='finaldata.csv'
+Statistics for lastmonth_activity. Mean 165.65384615384616. Std 284.0332293669447. Median 73.0
+Statistics for lastyear_activity. Mean 1502.923076923077. Std 2192.6449584568304. Median 955.0
+Statistics for number_of_employees. Mean 26.884615384615383. Std 31.353885785435814. Median 14.0
+```
+
+## Diagnostics
+Curl command and return string:
+```console
+curl 127.0.0.1:8000/diagnostics
+Ingestion timing 0.7190568470005019. Training timing 1.6306121659999917
+```

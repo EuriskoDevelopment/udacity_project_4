@@ -25,7 +25,7 @@ def score_model(filename):
     #this function should take a trained model, load test data, and calculate an F1 score for the model relative to the test data
     #it should write the result to the latestscore.txt file
 
-    X, y = load_data(os.path.join(os.getcwd(), test_data_path, filename))
+    X, y = load_data(os.path.join(os.getcwd(), filename))
     with open( os.path.join(os.getcwd(), model_path, 'trainedmodel.pkl'), 'rb') as file:
         model = pickle.load(file)
 
@@ -42,4 +42,4 @@ def score_model(filename):
 
 
 if __name__ == '__main__':
-    score_model('testdata.csv')
+    score_model(os.path.join(test_data_path, 'testdata.csv'))
