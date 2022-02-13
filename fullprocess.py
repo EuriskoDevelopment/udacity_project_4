@@ -48,8 +48,9 @@ print(new_unique_files)
 if new_unique_files:
     print("new files")
     ingestion.merge_multiple_dataframe()
-
-print("done")
+else:
+    print("done")
+    exit()
 
 
 
@@ -62,7 +63,7 @@ print(old_f1)
 
 newest_data = os.path.join(output_folder_path, 'finaldata.csv')
 new_f1 = scoring.score_model(newest_data)
-print("new f1" + new_f1)
+print(new_f1)
 
 
 ##################Deciding whether to proceed, part 2
@@ -70,6 +71,7 @@ print("new f1" + new_f1)
 if new_f1 < old_f1:
     print("model drift")
 else:
+    print("no model drift")
     exit()
 
 training.train_model()
